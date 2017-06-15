@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * Contains soical_book_plus.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\group\Entity\GroupContent;
+
+/**
+ * Implements hook_help().
+ */
+function social_book_plus_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the social_book_plus module.
+    case 'help.page.social_book_plus':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Collapsible book navigation block') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function social_book_plus_theme() {
+  return [
+    'social_book_plus_block' => [
+      'variables' => ['items' => [], 'attributes' => [], 'active_trail' => []],
+    ],
+  ];
+}
+
+/**
+ * Add link for creating child book pages
+ *
+ * @param array $variables
+ *   An associative array containing:
+ */
+function social_book_plus_preprocess_account_header_links(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (is_object($node)) {
+    $groupcontents = GroupContent::loadByEntity($node);
+    $group = NULL;
+    // Only react if it is actually posted inside a group.
+    if (!empty($groupcontents)) {
+      foreach ($groupcontents as $groupcontent) {
+        $group = $groupcontent->getGroup();
+        break;
+      }
+    }
+
+    if (is_object($node) && is_object($group)) {
+      $variables['links']['add']['below']['add_child_book_page'] = [
+        'classes' => '',
+        'link_attributes' => '',
+        'link_classes' => '',
+        'icon_classes' => '',
+        'icon_label' => '',
+        'title' => t('Add child page'),
+        'label' => t('Add child page'),
+        'title_classes' => '',
+        'url' => Url::fromUserInput("/group/{$group->id()}/content/create/group_node:topic",
+          [
+            'query' => [
+              'parent' => $node->id(),
+            ],
+          ]),
+      ];
+    }
+  }
+}

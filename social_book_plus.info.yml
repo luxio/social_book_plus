@@ -1,0 +1,7 @@
+name: Social Book Plus
+type: module
+description: Expandable book navigation block
+core: 8.x
+package: Custom
+dependencies:
+  - book

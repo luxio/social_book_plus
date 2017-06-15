@@ -1,0 +1,107 @@
+/**
+ * @file
+ * Visual styles for book tree.
+ */
+.block-social-book-plus-block .social-book-plus-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin-left: -5px;
+    padding-left: 5px;
+    margin-right: -5px;
+    padding-right: 5px;
+
+}
+
+.block-social-book-plus-block ul.social-book-plus {
+    list-style: none;
+    padding: 0;
+}
+
+.block-social-book-plus-block ul.social-book-plus.level-0 > li > div > details > summary {
+    display: none;
+}
+
+.block-social-book-plus-block ul.social-book-plus.level-0 > li {
+    margin-left: -2rem;
+}
+
+.block-social-book-plus-block .social-book-plus summary {
+    padding-left: 100%;
+    margin-left: -100%;
+    position: relative;
+}
+
+.block-social-book-plus-block li.book-item {
+    margin: 0;
+    padding: 0;
+    padding-left: 2rem;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
+
+.block-social-book-plus-block li.book-item > div {
+    padding-left: 100%;
+    margin-left: -100%;
+    position: relative;
+}
+
+.block-social-book-plus-block .social-book-plus details {
+    margin-left: -1rem;
+}
+
+.block-social-book-plus-block li.book-item a:hover,
+.block-social-book-plus-block .social-book-plus .book-item--active-trail > div > details > summary > a,
+.block-social-book-plus-block .social-book-plus .book-item--active-item > div > a {
+    color: #29abe2;
+}
+
+.block-social-book-plus-block .social-book-plus .book-item:before {
+    content: '\25CB';
+    position: absolute;
+    margin-left: -1rem;
+}
+
+.block-social-book-plus-block .social-book-plus .book-item--expanded:before {
+    content: '';
+}
+
+.block-social-book-plus-block .social-book-plus summary:focus {
+    outline: none;
+}
+
+.block-social-book-plus-block .social-book-plus summary:after,
+.block-social-book-plus-block li.book-item > div:after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    z-index: -10;
+}
+
+.block-social-book-plus-block .social-book-plus summary:hover:after,
+.block-social-book-plus-block li.book-item > div:hover:after {
+    background-color: rgba(0, 0, 0, 0.07);
+    -webkit-transition: box-shadow, .3s ease-out;
+    transition: box-shadow, .3s ease-out;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.block-social-book-plus-block .social-book-plus summary:hover,
+.block-social-book-plus-block li.book-item > div:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+
+.block-social-book-plus-block li.book-item--expanded > div:hover {
+    background: inherit;
+    color: inherit;
+}
+
+.block-social-book-plus-block li.book-item--expanded > div:hover:after {
+    background-color: inherit;
+}

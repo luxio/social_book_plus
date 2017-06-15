@@ -1,0 +1,14 @@
+{
+  "name": "drupal/social_book_plus",
+  "type": "drupal-module",
+  "description": "Collapsible book navigation block",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/social_book_plus",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/social_book_plus",
+    "source": "http://cgit.drupalcode.org/social_book_plus"
+  },
+  "require": { }
+}
