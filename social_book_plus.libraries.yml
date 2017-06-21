@@ -2,8 +2,3 @@ social-book-plus.tree:
   css:
     theme:
       css/social.book.plus.css: {}
-  js:
-    js/social_book_plus.js: {}
-  dependencies:
-    - core/jquery
-
